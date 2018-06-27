@@ -1,9 +1,9 @@
 package com.vane.service.impl;
 
+import com.vane.aspect.TestAspect;
 import com.vane.dao.AreaDao;
 import com.vane.entity.Area;
 import com.vane.service.AreaService;
-import org.hibernate.validator.constraints.SafeHtml;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,6 +27,7 @@ public class AreaServiceImpl implements AreaService {
     @Override
     public Area getAreaById(int areaId) {
 //        int a = 1/0;
+        System.out.println("getAreaById");
         return areaDao.queryAreaById(areaId);
     }
 

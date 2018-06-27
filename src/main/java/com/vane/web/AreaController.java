@@ -1,6 +1,7 @@
 package com.vane.web;
 
 import com.vane.entity.Area;
+import com.vane.aspect.TestAspect;
 import com.vane.service.AreaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,8 +31,10 @@ public class AreaController {
         return map;
     }
 
+
     @RequestMapping(value = "/getareabyid",method = RequestMethod.GET)
-    private Map<String,Object> getAreaById(Integer areaId){
+    @TestAspect(value = "areaId")
+    public Map<String,Object> getAreaById(Integer areaId){
         Map<String,Object> modelMap = new HashMap<>();
         Area area = areaService.getAreaById(areaId);
         modelMap.put("area",area);

@@ -1,6 +1,7 @@
 package com.vane.dao;
 
 import com.vane.entity.Area;
+import com.vane.service.AreaService;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,6 +22,8 @@ import static org.junit.Assert.*;
 public class AreaDaoTest {
     @Autowired
     private AreaDao areaDao;
+    @Autowired
+    private AreaService areaService;
 
     @Test
 //    @Ignore
@@ -30,9 +33,9 @@ public class AreaDaoTest {
     }
 
     @Test
-    @Ignore
+//    @Ignore
     public void queryAreaById() throws Exception {
-        Area area = areaDao.queryAreaById(1);
+        Area area = areaService.getAreaById(1);
         assertEquals("东苑",area.getAreaName());
     }
 
